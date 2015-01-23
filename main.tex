@@ -1,0 +1,75 @@
+\documentclass[a4paper]{article}
+
+%Moduli utilizzati
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{titling}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[nottoc]{tocbibind}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{hyperref}  
+\usepackage{xspace}
+
+%Setup
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+%Nuovi comandi
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+
+\newcommand{\net}{Ne-t\xspace}
+\newcommand{\mytitle}{PadovaCard}
+\newcommand{\mydegree}{Tesi di Laurea Triennale}
+\newcommand{\glossario}[1]{\textit{#1\ped{\ped{G}}}}
+%\newcommand{\glossario}[1]{#1}
+\newcommand{\definizione}[1] {\textbf{#1}:}
+\newcommand{\vivaticket}{VivaTicket\xspace}
+\newcommand{\tlite}{Tlite\xspace}
+\newcommand{\charta}{Charta\xspace}
+\newcommand{\cappella}{Cappella degli Scrovegni\xspace}
+
+
+\pagestyle{myheadings}
+\markright{Nicolò Tresoldi - PadovaCard}
+
+\title{PadovaCard}
+\subtitle{Attività di stage esterno}
+\author{Nicolò Tresoldi}
+
+
+%Inizio Documento
+\begin{document}
+
+%\input{capitoli/frontespizio}
+%\input{capitoli/colophone}
+\maketitle
+
+\tableofcontents
+
+\listoftables
+
+\listoffigures
+
+\newpage
+
+%Capitoli
+
+\input{capitoli/introduzione}
+\input{capitoli/studio-fattibilita}  
+\input{capitoli/analisi-requisiti}
+%\input{capitoli/glossario}  
+
+
+\end{document}
