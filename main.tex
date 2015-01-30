@@ -11,6 +11,11 @@
 \usepackage{longtable}
 \usepackage{hyperref}  
 \usepackage{xspace}
+\usepackage{listings}
+\lstloadlanguages{SQL} 
+\usepackage{tikz}
+\usepackage{colortbl}
+\usepackage[titletoc]{appendix}
 
 %Setup
 \hypersetup{
@@ -19,6 +24,17 @@
     filecolor=black,
     linkcolor=black,
     urlcolor=black
+}
+
+\lstset{
+  columns = fullflexible,
+  keywordstyle = \color{black}\bfseries, 					
+  commentstyle = \color{blue},
+  language = SQL,  
+  linewidth = 1 \textwidth, 
+  frame = tb, 
+  breaklines = true, 
+  extendedchars = true
 }
 
 %Nuovi comandi
@@ -62,14 +78,20 @@
 
 \listoffigures
 
-\newpage
+%\newpage
 
 %Capitoli
 
-\input{capitoli/introduzione}
-\input{capitoli/studio-fattibilita}  
-\input{capitoli/analisi-requisiti}
+%\include{capitoli/introduzione}
+%\include{capitoli/ambiente-lavoro}
+%\include{capitoli/studio-fattibilita}  
+%\include{capitoli/analisi-requisiti}
+\include{capitoli/progettazione}
+\appendix
+\addappheadtotoc
+\setcounter{table}{0}
+\renewcommand{\thetable}{A.\arabic{table}}
+%\input{capitoli/appendice-incontro}
 %\input{capitoli/glossario}  
-
 
 \end{document}

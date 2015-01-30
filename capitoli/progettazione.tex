@@ -1,0 +1,119 @@
+\section{Progettazione}\label{progettazione}
+\subsection{Base di dati}
+\input{capitoli/database}
+
+\subsection{Architettura del sistema}
+Di seguito viene riportata l'architettura di OSS ad alto livello, che si rifà all'architettura MVC imposta da CakePHP. 
+Successivamente View, Model e Controller saranno mostrati nel dettaglio con le relative classi. \\
+
+Dopo questa visione d'insieme, nella Sezione \ref{specificacomponenti} per ogni requisito verrànno proposti uno o più diagrammi delle attività e di classe,
+ogni  componente progettata viene collegata ad un requisito e ad una classe, il tracciamento completo si trova nella Sezione \ref{tracciamento}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{images/basic_mvc.png}
+\caption{Una tipica richiesta MVC in OSS}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+%\includegraphics[width=1\textwidth]{images/model.png}
+\caption{Pacchetto Model}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+%\includegraphics[width=1\textwidth]{images/controller.png}
+\caption{Pacchetto Controller}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+%\includegraphics[width=1\textwidth]{images/view.png}
+\caption{Pacchetto View}
+\end{figure}
+
+\subsection{Funzionamento \tlite}\label{progettazionetlite}
+Dalla Figura \ref{tlite} si evince il percorso che l'operatore deve compiere per effettuare la prenotazione. Di particolare interesse è mostrare i punti in cui il nuovo processo differisce da quello attuale:
+\begin{itemize}
+\item Il biglietto venduto sarà a costo zero, questo permette di concludere la prenotazione anche senza conferma di pagamento;
+\item Il resoconto dell'ordine va stampato in formato testuale;
+\item \tlite non invia nessuna email all'utente, è da valutare se si vuole inviare una email ad un'apposita casella postale di \net.
+\end{itemize}
+I punti che invece restano invariati sono:
+\begin{itemize}
+\item Vi è un solo codice \tlite per ogni prenotazione, indipendentemente dal numero di posti riservati;
+\item L'anagrafica del cliente che effettua l'ordina va inserita;
+\item \'E necessario annullare manualmente l'ordine nel caso in cui il cliente non concluda il pagamento su OSS.
+\end{itemize}
+
+\tlite permette di stampare il resoconto dell'ordine, per ottenere un file invece di una stampa cartacea è sufficiente creare a livello di sistema operativo (Windows) una finta stampante che stampa su file, ed impostare come output un formato testuale in qaunto semplice da \glossario{parsare} su OSS in un momento successivo.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{images/tlite.png}
+\caption{Pacchetto View \label{tlite}}
+\end{figure}
+
+\subsection{Specifica componenti}\label{specificacomponenti}
+\input{capitoli/specificacomponenti}
+
+\subsection{Tracciamento requisiti}\label{tracciamento}
+
+
+\begin{center}
+\def\arraystretch{2}
+\begin{longtable}{|p{7cm}|p{3cm}|}
+\cellcolor[gray]{0.9} \textbf{Componente} & \cellcolor[gray]{0.9} \textbf{Requisiti} \\ \hline
+Users & ROP 14 \newline ROP 15 \newline ROP 16 \newline RFP 18 \newline ROO 19 \newline ROO 20 \newline ROO 21 \\ \hline
+Tdocumentos & ROU 2 \newline ROU 3 \newline ROU 4 \newline ROU 5 \newline RFU 12 \newline ROO 23 \newline ROO 24 \newline ROS 26 \\ \hline
+Visits & ROU 6 \newline ROP 17 \newline ROS 28 \\ \hline
+Prints & ROU 7 \\ \hline
+EditPadovaCard & ROO 25 \newline RFO 31 \\ \hline
+\caption{Tracciamento componenti - requisiti}
+\end{longtable}
+
+\def\arraystretch{2}
+\begin{longtable}{|p{7cm}|p{3cm}|}
+\cellcolor[gray]{0.9} \textbf{Requisito} & \cellcolor[gray]{0.9} \textbf{Componenti} \\ \hline
+1 & \\ \hline
+ROU 2 & Tdocumentos \\ \hline
+ROU 3 & Tdocumentos \\ \hline
+ROU 4 & Tdocumentos \\ \hline
+ROU 5 & Tdocumentos \\ \hline
+ROU 6 & Visits \\ \hline
+ROU 7 & Prints \\ \hline
+RFU 8 & \\ \hline
+RFU 9 & \\ \hline
+RFU 10 & \\ \hline
+RFU 11 & \\ \hline
+RFU 12 & Tdocumentos \\ \hline
+RFU 13 & \\ \hline
+ROP 14 & User \\ \hline
+ROP 15 & User \\ \hline
+ROP 16 & User \\ \hline
+ROP 17 & Visits \\ \hline
+RFP 18 & User \\ \hline
+ROO 19 & User \\ \hline
+ROO 20 & User \\ \hline
+ROO 21 & User \\ \hline
+ROO 22 & \tlite \\ \hline
+ROO 23 & Tdocumentos \\ \hline
+ROO 24 & Tdocumentos \\ \hline
+ROO 25 & EditPadovaCard \\ \hline
+ROS 26 & Tdocumentos \\ \hline
+27 & \\ \hline
+ROS 28 & Visits \\ \hline
+29 & \\ \hline
+30 & \\ \hline
+31 & EditPadovaCard \\ \hline
+\caption{Tracciamento requisiti - componenti}
+\end{longtable}
+
+\end{center} 
+% DI TUTTO UN PO'
+
+\subsection{Veste grafica PadovaCard}null
+
+
+Utilzzo di https

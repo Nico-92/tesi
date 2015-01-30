@@ -1,16 +1,15 @@
 \section{Introduzione}
 
 \subsection{PadovaCard ora}
-PadovaCard è un pacchetto ideato per chi desidera visitare la città. 
-I punti di forza sono:
+PadovaCard è un pacchetto ideato per chi desidera visitare la città di Padova.I suoi punti di forza sono:
 \begin{itemize}
 \item Utilizzo gratuito dei mezzi di trasporto pubblici comunali;
 \item Parcheggio gratuito in alcune zone;
 \item Noleggio di veicoli, biciclette, segway a prezzo scontato;
 \item Accesso gratuito alle strutture convenzionate.
 \end{itemize}
-\`E acquistabile con validità di 48 e 72 ore, contate dal momento in cui la PadovaCard viene ritirata allo sportello informazioni assistenza turistica (\glossario{IAT}).
-La carta si presenta come in figura \ref{immaginePadovaCard}, e non presenta nessun tipo di circuito, banda magnetica o codice stampato. 
+\`E acquistabile con validità di 48 e 72 ore, contate dal momento in cui viene ritirata allo sportello informazioni assistenza turistica (\glossario{IAT}).
+La carta si presenta come in figura \ref{immaginePadovaCard}, e non possiede nessun tipo di circuito, banda magnetica o codice stampato. 
 Proprio per questo motivo, nonostante sia una tessera personale e non cedibile, non c'è modo di verificare chi ne è l'intestatario.\\
 
 \begin{figure}[H]
@@ -24,7 +23,7 @@ Per acquistare una PadovaCard l'\glossario{utente} può recarsi ad uno degli spo
 \label{cappella}
 La \cappella è uno tra i luoghi d'interesse più visitati, ed è convenzionato con PadovaCard. La visita alla cappella presenta un ingresso contingentato, ovvero il numero di visitatori per ogni visita è fissato, e per questo è necessario prenotare la propria visita, definendo data e fascia oraria. Non è possibile visitare la \cappella senza prenotazione. \\
 
-Questo vincolo fa si che chiunque acquisti una PadovaCard con l'intenzione di visitare la \cappella è obbligato a prenotarne la visita. Questo è possibile farlo se si acquista la PadovaCard in un punto vendita autorizzato, oppure attraverso la piattaforma \vivaticket.
+Tale vincolo fa si che chiunque acquisti una PadovaCard con l'intenzione di visitare la \cappella è obbligato a prenotarne la visita. Questo è possibile farlo se si acquista la PadovaCard in un punto vendita autorizzato, oppure attraverso la piattaforma \vivaticket.
 \`E inoltre attivo un call center che permette agli utenti di acquistare una PadovaCard collegata ad un ingresso in \cappella.
 In questi ultimi due casi la PadovaCard verrà poi ritirata presso un punto vendita o direttamente alla \cappella.\\
 
@@ -58,23 +57,33 @@ Il database su cui si basa il sistema è un database \glossario{MySql}.
 Non trattandosi di un software sviluppato da \net si è dovuto adattare i requisiti ai limiti imposti da tale software.
 Il limite principale è la mancanza di comunicazione tra \tlite e il software sviluppato causato da una mancanza di \glossario{API} pubbliche di \tlite.\\
 
-Si sono comunque rivelate necessarie alcune modifiche minori al software e per questo è stato svolto un incontro tra gli sviluppaotri di \tlite e quelli di \net.
+Si sono comunque rivelate necessarie alcune modifiche minori al software e per questo è stato svolto un incontro tra gli sviluppaotri di \tlite e quelli di \net il cui resoconto è consultabile nell'Appendice \ref{verbale}.
 Ai fini di questo documento non è necessario conoscere il funzionamento di \tlite nel suo insieme, mentre i punti d'interesse per la progettazione del nuovo sistema per PadovaCard saranno presentati nella sezione \ref{progettazione}.
 
 \subsection{Lavoro svolto}
 Il focus dello stage è stato sui seguenti punti:
 \begin{itemize}
 \item Analizzare i requisiti del sistema PadovaCard, il risultato è visibile alla Sezione \ref{analisideirequisiti};
+\item Progettare un sistema modulare che copra tutti i requisiti obbligatori e permetta di implementare i requisiti facoltativi in modo relativamente semplice;
 \end{itemize}
 
 \subsubsection{Analisi dei requisiti}
 Di seguito viene descritto l'approccio seguito per generare una dettagliata analisi dei requisiti, il cui risultato è presentato nella Sezione \ref{analisideirequisiti}.
 L'azienda \net ha fornito al tirocinante un documento in cui vengono descritti gli obbiettivi e le criticità del nuovo sistema per la Padovacard. Dallo studio di tale documento il tirocinante ha potuto definire il piano di lavoro dello stage.\\
 
-L'analisi degli obbiettivi e del funzionamento del sistema ad alto livello è stato poi discusso in diverse riunioni tra i membri del team di sviluppo, ponendo un focus particolare sulle difficoltà inerenti alla \cappella, esposte nella Sezione \ref{cappella}.\\
+L'analisi degli obbiettivi e del funzionamento del sistema ad alto livello è stato poi discusso in diverse riunioni tra i membri del team di sviluppo, e i membri di \charta \footnote{Il verbale della riunione è consultabile all'Appendice \ref{verbale}}, ponendo un focus particolare sulle difficoltà inerenti alla \cappella, esposte nella Sezione \ref{cappella}.\\
 
 Da queste riunioni il tirocinante ha estratto i dettagli funzionali dell’applicazione.
 Per esprimere in modo chiaro i requisiti individuati si è ricorso al formalismo UML - Casi d'uso, anch'essi visionabili alla Sezione \ref{analisideirequisiti}.\\
 
 L'individuazione dei requisiti è stata fatta corretamente già alla prima iterazione, mentre i casi d'uso e la loro descrizione dettagliata sono stati modificati più volte, al fine di eliminare ogni possibile ambiguità.
+\subsubsection{Progettazione}
+Questa fase ha avuto inizio con un insieme di requisiti completi. Durante la progettazione ci si è però accorti che alcuni requisiti giudicati implementativamente semplici avrebbero richiesto molte \glossario{ore/uomo} e sono quindi stati declassificati da obbligatori a facoltativi, viceversa alcuni requisiti facoltativi si sono giudicati essenziali per avere un buon sistema e sono quindi stati promossi a obbligatori. Alcuni requisiti sono inoltre stati ulteriorlmente scomposti per permettere una migliore progettazione. \\
+
+Il focus durante la progettazione è stato cercare di riutilizzare il più possibile di quanto OSS già offriva, come interfacce e come controller, per questo alcuni controller sono semplicemente stati estesi con nuovi metodi mentre altri sono stati creati ex-novo.\\ 
+
+Molta attenzione è stata posta anche nel progettare in previsione di espansioni future, principalmente per quanto riguarda la base di dati. Il sistema quando completo prevede l'implementazione di tutti i requisiti facoltativi ed è quindi stato importante progettare le componenti in modo tale da evitari grossi costi futuri.
+
+%TODO
+
 \subsection{Risultati a fine stage}
