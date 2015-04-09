@@ -1,4 +1,59 @@
+\clearpage\null\newpage
 \section{Ambiente di lavoro}
+In questo capitolo verrà presentata l'azienda dove il tirocinante ha svolto lo stagen e gli strumenti di lavoro che sono stati utilizzati.
 \subsection{Azienda}
-\subsection{Processi di sviluppo}
-\subsection{Strumenti di lavoro}
+
+Ne-t by Telerete Nordest S.r.l. è una società padovana che opera nel campo dell'Informatica, di seguito viene mostrato il logo aziendale. \\
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{images/netlogo.png}
+\caption{Logo Ne-t by Telerete Nordest S.r.l.}
+\end{figure}
+
+L'azienda propone processi integrati per la realizzazione di servizi telematici progettando soluzioni custom, ritagliate sulle esigenze del cliente, ideando, definendo e realizzando servizi essenziali per lo sviluppo delle imprese e degli Enti Pubblici. \\
+
+Quattro sono le aree di business in cui ne-t by Telerete Nordest
+S.r.l. principalmente opera:
+
+\paragrafo{Sistemi di networking e connettività}
+Come Internet Service Provider progetta e implementa soluzioni di connettività per i propri clienti, partner e fornitori utilizzando i canali di comunicazione più adeguati alle reali esigenze del cliente, fornendo tecnologie "wired" (ADSL, fibra ottica, etc.) e "wireless"(WiMAX, WLL, WIFI, etc.); offre inoltre  servizi di housing,hosting e webmastering presso la propria web farm.
+
+\paragrafo{Servizi di call/contact center}
+Supporta i propri clienti nella consulenza progettuale, organizzativa e tecnologica e mette a disposizione operatori multilingue per i servizi di call
+center interni.
+
+\paragrafo{E-service}
+Sviluppa soluzioni software personalizzate, dedicando particolare attenzione a progetti per l'implementazione di prodotti software di e-government.
+
+\paragrafo{Mobilità urbana e videosorveglianza}
+Progetta, realizza, gestisce e mantiene sistemi di info-mobilità urbana e videosorveglianza.
+
+\subsection{Strumenti di lavoro}\label{strumentidilavoro}
+In ambito aziendale il sistema operativo utilizzato è Ubuntu. La versione installata in locale è la 14.04 LTS.
+Tutti i software di seguito presentati sono compatibili con tale sistema operativo oppure sono servizi online utilizzati via browser. Alcuni software erano già in uso all'interno dell'azienda, altri sono stati scelti in base alle conoscenze del tirocinante.
+
+\paragrafo{WriteLatex}
+Si tratta di un servizio online che offre un editor per la scrittura in \LaTeX. \'E stato scelto perchè permette il salvataggio in cloud e la modifica concorrente da parte di più utenti, garantendo una veloce modifica dei documenti da parte degli interessati. 
+
+\paragrafo{Pencil Project}
+Si tratta di un software distribuito sotto licenza GNU GPL 2, che offre un interfaccia grafica per la creazione di \glossario{mockup} di interfacce web o applicazioni mobile. \'E stato utilizzato in fase di progettazione per creare bozze di come saranno le nuove interfacce di OSS, in quanto si è visto che cosi facendo era più semplice far comprendere il funzionamento di un pezzo di software.
+
+\paragrafo{Sublime 3}
+Si tratta di un ambiente di sviluppo integrato \glossario{IDE} disponibile su tutti i sistemi operativi desktop che grazie ai molti plugin offre supporto ad ogni tipo di linguaggio.
+Permette inoltre di aumentare la produttività, aiutando il programmatore con soluzioni come \glossario{IntelliSense} e moltissime shortcuts, anche personalizzabili.
+
+\paragrafo{Php MyAdmin}
+Si tratta di un software sotto licenza GNU GPL 2, scritto in PHP, che offre un interfaccia grafica per la gestione di database MySQL. La versione utilizzata nel server di staging è la 2.11.9, mentre non era installato in locale in quanto il server locale faceva riferimento al database sul server.
+
+\paragrafo{Apache}
+Apache è un server HTTP open-source che aderisce agli standard HTTP. Si tratta del web server presente sia nel server di produzione che di staging, ed è stato installato anche in locale per permettere uno sviluppo concorrente tra i vari sviluppatori. 
+Tramite HTTP vengono prese le richieste dei client e ritornate le pagine web, dopo aver interpretato il codice CakePHP.
+
+\paragrafo{CVS}
+Concurrent Versions System è un software distribuito sotto GNU GPL per il versionamento del codice sorgente.
+Un server mantiene le versioni del progetto e i client vi si collegano per recuperarle e per fornire le modifiche.
+\'E stato scelto perchè già presente nel server di staging.
+
+\paragrafo{PHPDocumentor}
+PHPDocumentor è uno strumento che permette di generare documentazione direttamente dal codice sorgente PHP. Permette di scegliere tra diversi template, in modo da personalizzare lo stile della documentazione.

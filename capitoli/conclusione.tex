@@ -1,0 +1,137 @@
+\section{Conclusione e sviluppi futuri}
+\subsection{Consuntivo finale}\label{consuntivo}
+Il software per la gestione della PadovaCard è un singolo componente del sistema PadovaCard, infatti ne fanno parte anche l'installazione delle postazioni di validazione agli ingressi delle strutture, la formazione del personale etc. Di seguito il consuntivo si riferisce solamente allo sviluppo del software, come previsto dal piano di lavoro. \\ 
+
+Il periodo di stage è stato conforme a quanto previsto dal piano di studi, con data di inizio il 15 gennaio 2015 e data di fine il 13 marzo 2015, per un totale di 320 ore.
+Nella tabella \ref{tabellaconsuntivo} vengono riportate sia le ore preventivate per ciascuna attività sia quelle effettivamente impiegate, indicando la differenza tra i due valori.
+
+\def\arraystretch{2}
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Attività & Preventivo & Consuntivo & Differenza \\ \hline
+Apprendimento tecnologie & 16 & 0 & -16 \\ \hline
+Apprendimento OSS & 40 & 40 & 0 \\ \hline
+Analisi dei requisiti & 48 & 56 & +8 \\ \hline
+Progettazione & 72 & 64 & -8 \\ \hline
+Codifica & 104 & 128 & +24 \\ \hline
+Stesura manuali & 16 & 8 & -8 \\ \hline
+Revisione finale & 24 & 24 & 0 \\ \hline
+Totale & 320 & 320 & 0 \\ \hline
+\end{tabular}
+\caption{Ore consuntivo e consuntivo \label{tabellaconsuntivo}}
+\end{table}
+Come si può notare dalla tabella e successivamente dal diagramma di Gantt in figura \ref{gantconsuntivoI} e \ref{gantconsuntivoII} il numero di ore e la sequenza delle attività è stata molto diversa da quanto preventivato. Le principali differenze sono state:
+\begin{itemize}
+\item Non c'è stato nessun periodo di apprendimento tecnologico, solo lo studio del funzionamento di OSS;
+\item L'analisi dei requisiti è stata fatta come prima cosa;
+\item L'analisi dei requisiti ha richiesto più tempo del previsto, anche a causa delle frequenti riunioni, ma si è iniziata la fase di progettazione con dei requisiti stabili;
+\item La fase di codifica è durata molto più del previsto.
+\end{itemize}
+
+
+\begin{figure}[H]
+\centering
+\begin{turn}{-90}
+\begin{ganttchart}{2015-01-14}{2015-02-18}
+	\gantttitlecalendar{year, month=name, day} \\
+	\ganttgroup{\textbf{1- Apprendimento}}{2015-01-15}{2015-01-23} \\
+		\ganttbar[name=an1.1]{1.1- Norme ed obiettivi aziendali}{2015-01-15}{2015-01-21} \\
+		\ganttbar[name=an1.2]{1.2- Apprendimento tecnologie}{2015-01-22}{2015-01-23} \\
+		\ganttlink{an1.1}{an1.2}
+	
+	\ganttgroup{\textbf{2- Analisi e proggettazione}}{2015-01-26}{2015-02-17} \\
+		\ganttbar[name=an2.1]{2.1- Analisi dei requisiti}{2015-01-26}{2015-02-03} \\
+		\ganttbar[name=an2.2]{2.2- Proggettazione}{2015-02-05}{2015-02-10} \\
+        \ganttbar[name=an2.3]{2.3- Proggettazione}{2015-02-12}{2015-02-17} \\
+		\ganttlink{an2.1}{an2.2}
+        \ganttlink{an2.2}{an2.3}
+	
+\end{ganttchart}
+\end{turn}
+\caption{Gantt delle ore preventivate per l'attività di stage parte I}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{turn}{-90}
+\begin{ganttchart}{2015-02-17}{2015-03-15}
+	\gantttitlecalendar{year, month=name, day} \\
+	
+	\ganttgroup{\textbf{3- Implementazione}}{2015-02-18}{2015-03-06} \\
+		\ganttbar[name=an3.1]{3.1- Programmazione e verifica}{2015-02-18}{2015-03-06} \\
+
+	
+	\ganttgroup{\textbf{4 - Validazione e stesura manuali}}{2015-03-09}{2015-03-13} \\
+		\ganttbar[name=an4.1]{4.1- Validazione software}{2015-03-09}{2015-03-11} \\
+		\ganttbar[name=an4.2]{4.2- Stesura manuale utente}{2015-03-12}{2015-03-13} \\
+	
+\end{ganttchart}
+\end{turn}
+\caption{Gantt delle ore preventivate per l'attività di stage parte II}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{turn}{-90}
+\begin{ganttchart}{2015-01-14}{2015-02-15}
+	\gantttitlecalendar{year, month=name, day} \\
+	\ganttbar{\textbf{1- Analisi dei requisiti}}{2015-01-15}{2015-01-23} \\
+	
+	\ganttbar{\textbf{2- Apprendimento OSS}}{2015-01-26}{2015-01-30} \\
+    
+    \ganttgroup{\textbf{3- Proggettazione}}{2015-02-02}{2015-02-13} \\
+      \ganttbar[name=an3.1]{3.1- Progettazione}{2015-02-02}{2015-02-03} \\
+      \ganttbar[name=an3.2]{3.2- Progettazione}{2015-02-05}{2015-02-10} \\
+      \ganttbar[name=an3.3]{3.3- Progettazione}{2015-02-12}{2015-02-13} \\
+      \ganttlink{an3.1}{an3.2}
+      \ganttlink{an3.2}{an3.3}
+
+\end{ganttchart}
+\end{turn}
+\caption{Gantt del consuntivo dell'attività di stage parte I \label{gantconsuntivoI}}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\begin{turn}{-90}
+\begin{ganttchart}{2015-02-14}{2015-03-15}
+	\gantttitlecalendar{year, month=name, day} \\
+	
+	\ganttbar{\textbf{4- Codifica}}{2015-02-16}{2015-03-09} \\
+	
+	\ganttgroup{\textbf{5 - Revisione e stesura manuali}}{2015-03-09}{2015-03-13} \\
+    \ganttbar[name=an4.2]{5.2- Stesura manuale utente}{2015-03-10}{2015-03-10} \\
+		\ganttbar[name=an4.1]{5.1- Revisione software}{2015-03-11}{2015-03-13} \\
+		
+	
+\end{ganttchart}
+\end{turn}
+\caption{Gantt del consuntivo dell'attività di stage parte II \label{gantconsuntivoII}}
+\end{figure}
+
+
+Il progetto è stato concluso in ogni suo aspetto entro i termini previsti, quindi nonostante la differenza tra la durata e la sequenzialità delle attività si può affermare di aver fatto un buon piano di lavoro.
+
+\subsection{Obbiettivi raggiunti}
+Come detto nella Sezione \ref{consuntivo} il software è stato portato ad un punto sufficientemente maturo da permettere di utilizzarlo dopo averlo spostato dal server di test a quello definitivo. Tutti i requisiti individuati come fondamentali dall'anilisi dei requisiti sono stati implementati, dunque gli obbiettivi previsti sono stati raggiunti nel tempo stabilito. \\
+
+Essenziale è stato iniziare la fase di progettazione con requisiti solidi e ben definiti che hanno permesso di non dover modificare il software in corso di sviluppo, se non per piccoli adattamenti migliorativi. La validazione del software da parte degli operatori è iniziata prima del completamento totale, permettendo al tirocinante di non avere tempi morti, e di correggere i difetti non appena trovati.
+%TODO elenco di quelli opzionali sviluppati?
+
+\subsection{Sviluppi futuri}
+La nuova PadovaCard, a partire dalla primavera 2015 andrà a sostituire quella ora presente. Le strutture convenzionate verranno dotate di computer e lettore di codice a barre e il personale verrà formato per il loro utilizzo. Gli IAT verranno dotati delle apposite stampanti e gli operatori verranno formati su come utilizzare il software. \\
+
+Uno sviluppo futuro è una migliore integrazione con il software \tlite, che tramite l'implementazione di API pubbliche permetterà di automatizzare maggiormente la procedura di vendità, eliminando ad esempio la necessità di dover stampare la prenotazione come file testuale, o di dover inserire due volte il nominativo del cliente che effettua l'ordine. \\
+
+Un'altro miglioramento previsto è la possibilità per gli hotel di accedere ad una versione limitata di OSS per effettuare le vendite senza dover chiamare il call center, ovviamente pagando immediatamente.
+
+\subsection{Conoscenze acquisite}
+L'attività di stage dal punto di vista delle conoscenze acquisite ha avuto un esito molto positivo.
+OSS è stato sviluppato utilizzando CakePHP dunque per estendere le sue funzionalità si è stati obbligati ad utilizzare lo stesso framework. L'apprendimento di cakePHP è stato semplice in quanto il tirocinante ha già avuto esperienza con PHP sia all'interno dei corsi universitari che al di fuori. CakePHP si basa sul modello MVC e anche sotto questo punto di vista lil tirocinante aveva esperienze pregresse, inoltre CakePHP risulta essere molto ben documentato e molti problemi sorti durante lo sviluppo sono stati facilmente risolvibili con una ricerca sul web. 
+L'attività di configurazione della postazione di lavoro e della repository è stata svolta assieme al tutor in ambiente Linux e questo mi ha permesso di apprendere molti concetti riguardo il funzionamento del sistema operativo. \\
+
+Durante lo stage ho inoltre avuto la possibilità di applicare molte delle conoscenze acquisite durante la formazione universitaria e questo mi ha permesso di raggiungere gli obiettivi prefissati nei tempi stimati.
+

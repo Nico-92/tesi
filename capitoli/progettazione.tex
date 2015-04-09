@@ -4,10 +4,9 @@
 
 \subsection{Architettura del sistema}
 Di seguito viene riportata l'architettura di OSS ad alto livello, che si rifà all'architettura MVC imposta da CakePHP. 
-Successivamente View, Model e Controller saranno mostrati nel dettaglio con le relative classi. \\
+Successivamente Model e Controller sono mostrati nel dettaglio, indicando le classi che sono state create o modificate. \\
 
-Dopo questa visione d'insieme, nella Sezione \ref{specificacomponenti} per ogni requisito verrànno proposti uno o più diagrammi delle attività e di classe,
-ogni  componente progettata viene collegata ad un requisito e ad una classe, il tracciamento completo si trova nella Sezione \ref{tracciamento}.
+Dopo questa visione d'insieme, nella Sezione \ref{specificacomponenti} per ogni requisito verranno proposti uno o più diagrammi delle attività e di classe e ogni  componente progettata viene collegata ad un requisito e ad una classe generando il tracciamento che si trova nella Sezione \ref{tracciamento}.
 
 \begin{figure}[H]
 \centering
@@ -17,103 +16,160 @@ ogni  componente progettata viene collegata ad un requisito e ad una classe, il 
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=1\textwidth]{images/model.png}
+\includegraphics[width=1\textwidth]{images/model.png}
 \caption{Pacchetto Model}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=1\textwidth]{images/controller.png}
+\includegraphics[width=1\textwidth]{images/controller.png}
 \caption{Pacchetto Controller}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-%\includegraphics[width=1\textwidth]{images/view.png}
-\caption{Pacchetto View}
-\end{figure}
-
 \subsection{Funzionamento \tlite}\label{progettazionetlite}
-Dalla Figura \ref{tlite} si evince il percorso che l'operatore deve compiere per effettuare la prenotazione. Di particolare interesse è mostrare i punti in cui il nuovo processo differisce da quello attuale:
+Prima di vedere la specifica tecnica delle singole componenti è bene vedere il funzionamento del software \glossario{\tlite}. \\
+
+Dalla Figura \ref{tlite} si evince il percorso che l'operatore deve compiere per effettuare la prenotazione della visita alla \cappella. Di particolare interesse è mostrare i punti in cui il nuovo processo differisce da quello attuale:
 \begin{itemize}
 \item Il biglietto venduto sarà a costo zero, questo permette di concludere la prenotazione anche senza conferma di pagamento;
 \item Il resoconto dell'ordine va stampato in formato testuale;
-\item \tlite non invia nessuna email all'utente, è da valutare se si vuole inviare una email ad un'apposita casella postale di \net.
+\item L'anagrafica del cliente che effettua l'ordina non va inserita tranne che per nome e cognome;
+\item \tlite non invia nessuna email all'utente, ma dato che il campo email è da compilare in modo obbligatorio, verrà inserita una email del tipo \textit{prenotazionipadovacard@n-et.it}. Tale casella email ha lo scopo di fare da storico delle prenotazioni.
 \end{itemize}
 I punti che invece restano invariati sono:
 \begin{itemize}
 \item Vi è un solo codice \tlite per ogni prenotazione, indipendentemente dal numero di posti riservati;
-\item L'anagrafica del cliente che effettua l'ordina va inserita;
 \item \'E necessario annullare manualmente l'ordine nel caso in cui il cliente non concluda il pagamento su OSS.
 \end{itemize}
 
-\tlite permette di stampare il resoconto dell'ordine, per ottenere un file invece di una stampa cartacea è sufficiente creare a livello di sistema operativo (Windows) una finta stampante che stampa su file, ed impostare come output un formato testuale in qaunto semplice da \glossario{parsare} su OSS in un momento successivo.
+\tlite permette di stampare il resoconto dell'ordine, per ottenere un file invece di una stampa cartacea è sufficiente creare a livello di sistema operativo (Windows) una finta stampante che stampa su file, ed impostare come output un formato testuale in quanto semplice da analizzare sintatticamente su OSS in un momento successivo.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{images/tlite.png}
-\caption{Pacchetto View \label{tlite}}
+\caption{Funzionamento ordine su \tlite \label{tlite}}
 \end{figure}
 
 \subsection{Specifica componenti}\label{specificacomponenti}
 \input{capitoli/specificacomponenti}
 
-\subsection{Tracciamento requisiti}\label{tracciamento}
-
-
-\begin{center}
-\def\arraystretch{2}
-\begin{longtable}{|p{7cm}|p{3cm}|}
-\cellcolor[gray]{0.9} \textbf{Componente} & \cellcolor[gray]{0.9} \textbf{Requisiti} \\ \hline
-Users & ROP 14 \newline ROP 15 \newline ROP 16 \newline RFP 18 \newline ROO 19 \newline ROO 20 \newline ROO 21 \\ \hline
-Tdocumentos & ROU 2 \newline ROU 3 \newline ROU 4 \newline ROU 5 \newline RFU 12 \newline ROO 23 \newline ROO 24 \newline ROS 26 \\ \hline
-Visits & ROU 6 \newline ROP 17 \newline ROS 28 \\ \hline
-Prints & ROU 7 \\ \hline
-EditPadovaCard & ROO 25 \newline RFO 31 \\ \hline
-\caption{Tracciamento componenti - requisiti}
-\end{longtable}
-
-\def\arraystretch{2}
-\begin{longtable}{|p{7cm}|p{3cm}|}
-\cellcolor[gray]{0.9} \textbf{Requisito} & \cellcolor[gray]{0.9} \textbf{Componenti} \\ \hline
-1 & \\ \hline
-ROU 2 & Tdocumentos \\ \hline
-ROU 3 & Tdocumentos \\ \hline
-ROU 4 & Tdocumentos \\ \hline
-ROU 5 & Tdocumentos \\ \hline
-ROU 6 & Visits \\ \hline
-ROU 7 & Prints \\ \hline
-RFU 8 & \\ \hline
-RFU 9 & \\ \hline
-RFU 10 & \\ \hline
-RFU 11 & \\ \hline
-RFU 12 & Tdocumentos \\ \hline
-RFU 13 & \\ \hline
-ROP 14 & User \\ \hline
-ROP 15 & User \\ \hline
-ROP 16 & User \\ \hline
-ROP 17 & Visits \\ \hline
-RFP 18 & User \\ \hline
-ROO 19 & User \\ \hline
-ROO 20 & User \\ \hline
-ROO 21 & User \\ \hline
-ROO 22 & \tlite \\ \hline
-ROO 23 & Tdocumentos \\ \hline
-ROO 24 & Tdocumentos \\ \hline
-ROO 25 & EditPadovaCard \\ \hline
-ROS 26 & Tdocumentos \\ \hline
-27 & \\ \hline
-ROS 28 & Visits \\ \hline
-29 & \\ \hline
-30 & \\ \hline
-31 & EditPadovaCard \\ \hline
-\caption{Tracciamento requisiti - componenti}
-\end{longtable}
-
-\end{center} 
 % DI TUTTO UN PO'
 
-\subsection{Veste grafica PadovaCard}null
+\subsection{Veste grafica PadovaCard}
+
+La PadovaCard non utilizza bande magnetiche o micro circuiti per essere eco sostenibile, e per lo stesso motivo la scelta del materiale è ricaduta sul cartone. 
+Dopo aver provato diversi stampanti si è deciso di adottare il formato \glossario{ISO/IEC 7810:2003 ID-1} che prevede una dimensione di 85,6 mm x 54 mm e gli angoli con un arrotondamento di 3 mm. La stampante scelta vincola la \glossario{grammatura} della carta ad un massimo di 240. \\
+
+Il fronte della PadovaCard manterrà lo stile utilizzato fino ad ora, visibile in Figura \ref{stilepadovacard} che sarà prestampato su ogni PadovaCard.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{images/frontepadovacard.JPG}
+\caption{Fronte della PadovaCard \label{stilepadovacard}}
+\end{figure}
+
+Il retro verrà invece stampato al momento in quanto contiene le informazioni sulla validità e sul possessore.
+Le informazioni sono caricate dal database, quindi utilizzando le librerie descritte nella Sezione \ref{librerie} viene generato un pdf delle esatte dimensioni della PadovaCard.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{images/retropadovacard.png}
+\caption{Retro della PadovaCard}
+\end{figure}
+
+\subsection{Parser}\label{parser}
+Il parser sarà scritto in PHP e prenderà in input il file testuale stampato da \tlite, sia caricato manualmente sia automaticamente. L'output del parser sarà un array contenente:
+\begin{itemize}
+	\item Anagrafica del cliente;
+    \item Codice operatore;
+    \item Codice cassa;
+    \item Codice \tlite;
+    \item Elenco di data e ora delle varie visite.
+\end{itemize}
+
+Il file che viene passato è quello generato dall'operatore attualmente loggato. Ogni riga viene presa singolarmente, e al suo interno vi si cerca una delle parole chiavi che indicano la presenza in tale riga di una delle informazioni ricercate. \\
+
+Quando la riga corretta è individuata, si sostituiscono gli spazi multipli e i caratteri di tabulazione con uno spazio singolo, quindi si esplode la riga in un array, dove ogni elemento è una parola, e si prende l'elemento corrispondente alla posizione dell'informazione cercata all'interno della riga. \\ 
+
+Affinchè il parser funzioni correttamente è necessario che le parole chiavi che vengano ricercate non cambino, e che il numero di parole che precedono l'informazione, per tale riga, non cambi. \\
+
+Nel caso in cui il file non fosse leggibile, o non si trovassero tutte le parole chiave si dirà all'operatore che il file non è stato trovato. \\
+
+Di seguito un esempio del file che il parser prenderà in input.
+\lstset{frame=single}
+\begin{center}
+\begin{lstlisting}[language=TeX]
+Ricevuta di Pagamento
+
+                                     Rossi Mario
+             Acquistati da    Via Giulio Cesare 01/A 35128 padova (pd) Italia
+             
+             Codice Transazione                                                      TLITE0528719557700
+             
+             Evento       Cappella degli Scrovegni e Musei Civici degli Eremitani del 14/05/2015 17:15 
+             
+             Sala                                                              Cappella degli Scrovegni
+             
+             Organizzatore                                                             Comune di Padova
+             
+             Zona                Descrizione posto      Riduzione             N.Bigl.  Prezzo  Prev.
+             Ingressi            Ingresso               GRATUITO PADOVACARD     1    0,00   0,00
+             
+             Totale ricevuta                                                      1          0,00
+             
+             Gli importi sono comprensivi di iva
+             
+             Casse e                                                                         PC-01
+             operatore                                                                        OperatoreX 
+             
+             Pagati da
+             
+             Data emissione                                                            30/01/2015 12:47
+             
+             Ritiro biglietti
+             E' possibile ritirare i biglietti presso la biglietteria del museo a partire dal giorno
+             seguente all'acquisto. Il ritiro del biglietto deve avvenire con congruo anticipo: si
+             consiglia soprattutto ai gruppi di presentarsi in biglietteria almeno 45 minuti prima
+             dell'orario di visita. In caso di acquisto di riduzioni il personale del museo potra'
+             richiedere documentazione per verificare l'effettiva validita' dell'acquisto.
 
 
-Utilzzo di https
+\end{lstlisting}
+\end{center}
+I dati dell'utente si trovano immediatamente sotto la dicitura "Ricevuta di pagamento", il codice \tlite è marcato dalla dicitura "Codice Transazione", data e ora della visita al termine della riga che corrisponde a "Evento" ed infine Cassa e operatore indicano il codice postazione ed il codice dell'operatore  che ha effettuato la vendita.
+
+\subsection{Creazione codice a barre univoco}
+Il codice a barre utilizzato è presentato nella sezione \ref{codicebarre}. Di seguito è spiegato come il codice viene generato. \\
+
+Si è scelto di utilizzare l'output della funziona hash SHA-256 più due caratteri, che saranno i secondi del timestamp del log dell'operazione di creazione di una nuova PadovaCard. 
+L'input utilizzato per la funzione di hash è dato dal codice \tlite, più un valore di salt, ovvero una sequenza casuale di bit generata da CakePHP.\\
+
+La funzione SHA-256 prende tale input e lo trasforma in una sequenza di 256 bit, siccome nel nostro database abbiamo dichiarato il campo codicecarta di tipo char(10) esso conterrà al più 80bit, per questo motivo tronchiamo i 256 bit di output a 64, cui andranno aggiunti i 16 bit dei restanti due caratteri.\\ 
+
+Grazie all'aggiunta di questi due caratteri si evita il problema di possibili collisioni di input. \\
+
+\'E stato scelto di utilizzare il formato PDF perchè presenta una grafica vettoriale e non raster come ad esempio il formato PNG.
+\subsection{Librerie}\label{librerie}
+Per velocizzare lo sviluppo ci si è appoggiati a due librerie esterne per la creazione di PDF con all'interno codici a barre.
+Tali PDF sono i voucher che il cliente riceve e la PadovaCard che viene stampata.
+Entrambe le librerie sono sotto licenza comparabile con la \glossario{MIT} ed è quindi stato possibile modificarle e integrarle nel software.
+Le librerie sono le seguenti:\\
+\paragrafo{FPDF}
+Libreria in PHP che permette di generare file PDF direttamente da PHP, personalizzando il layout e il testo in ogni suo aspetto.\\
+\paragrafo{Code-128}
+Libreria che appoggiandosi a FPDF permette di generare codici a barre in codifica 128, con la possibilità di scegliere la dimensione e l'orientamento.
+
+\subsection{Codifica codice a barre}
+\label{codicebarre}
+Esistono due tipologie di codici a barre, lineari e a matrice. \\
+Fin da subito si è scelto di utilizzare un codice a barre lineare, scartando quindi codifiche come QrCode e DataMatrix.
+Il vincolo per la scelta della codifica lineare da utilizzare è stato imposto dall'azienda fornitrice dei dispositivi di lettura.\\ 
+
+Tra le alternative disponibili due sono state scelte come le più appetibili, la codifica EAN-13 e la codifica 128, su quest'ultima è ricaduta la scelta finale, per due motivi:
+\begin{itemize}
+\item Permette di rappresentare sia cifre che numeri;
+\item \'E disponibile un maggior numero di librerie PHP per la sua creazione.
+\end{itemize}
+
+Il codice 128 è un codice a barre lineare ad alta densità, che codifica tutti i caratteri ASCII, dallo 0 al 128 (Da qui il nome).
+Ogni singola barra può avere tre diversi significati a seconda di quale dei tre set disponibili è utilizzato, e a seconda del set usato un codice a barre assume un significato diverso.

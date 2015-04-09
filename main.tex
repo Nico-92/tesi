@@ -8,14 +8,18 @@
 \usepackage{float}
 \usepackage[nottoc]{tocbibind}
 \usepackage{tabularx}
-\usepackage{longtable}
+\usepackage{longtable} % tabelle su più pagine
 \usepackage{hyperref}  
-\usepackage{xspace}
-\usepackage{listings}
-\lstloadlanguages{SQL} 
+\usepackage{xspace} % dimensione riga delle tabelle (padding etc)
+\usepackage{listings} % crea i listati di codice
+\lstloadlanguages{SQL} % carica sql come linguaggio per i listati
 \usepackage{tikz}
 \usepackage{colortbl}
 \usepackage[titletoc]{appendix}
+\usepackage{pgfgantt} % genera i gantt
+\usepackage{rotating} %Ruota i gantt
+\usepackage{textcomp} % permette il comando textunderscore 
+\usepackage{breakurl} % Per mandare a capo i link della biblio
 
 %Setup
 \hypersetup{
@@ -37,6 +41,29 @@
   extendedchars = true
 }
 
+\ganttset{
+	vgrid,
+	time slot format=isodate,
+	newline shortcut=true,
+	x unit=0.4cm,
+	y unit chart=0.45cm,
+%	
+	title/.append style={inner sep=0pt},
+	title label font=\footnotesize,
+	title height=.4,
+%
+	group label font=\normalfont,
+	group peaks tip position=0,
+	group left shift=0,
+	group right shift=0,
+%
+	bar/.style={draw=black, fill=cyan!70, rounded corners=1pt},
+	bar label font=\normalfont,
+	bar label node/.append style={align=right}
+}
+
+\setcounter{secnumdepth}{5}
+
 %Nuovi comandi
 \newcommand{\subtitle}[1]{%
   \posttitle{%
@@ -45,32 +72,37 @@
     \vskip0.5em}%
 }
 
+\newcommand{\paragrafo}[1]{~\\ \noindent \textbf{#1}\mbox{}\\}
+
 \newcommand{\net}{Ne-t\xspace}
-\newcommand{\mytitle}{PadovaCard}
+\newcommand{\mytitle}{PadovaCard - Sistema per la città di Padova per la gestione di una tessera rivolta ai turisti}
 \newcommand{\mydegree}{Tesi di Laurea Triennale}
 \newcommand{\glossario}[1]{\textit{#1\ped{\ped{G}}}}
 %\newcommand{\glossario}[1]{#1}
-\newcommand{\definizione}[1] {\textbf{#1}:}
+\newcommand{\definizione}[1] {\textbf{#1}}
 \newcommand{\vivaticket}{VivaTicket\xspace}
 \newcommand{\tlite}{Tlite\xspace}
 \newcommand{\charta}{Charta\xspace}
 \newcommand{\cappella}{Cappella degli Scrovegni\xspace}
+\renewcommand{\appendixtocname}{Appendici}
 
 
-\pagestyle{myheadings}
-\markright{Nicolò Tresoldi - PadovaCard}
+%\pagestyle{myheadings}
+%\markright{Nicolò Tresoldi - PadovaCard}
 
-\title{PadovaCard}
-\subtitle{Attività di stage esterno}
-\author{Nicolò Tresoldi}
+%\title{PadovaCard}
+%\subtitle{Attività di stage esterno}
+%\author{Nicolò Tresoldi}
 
 
 %Inizio Documento
 \begin{document}
 
-%\input{capitoli/frontespizio}
-%\input{capitoli/colophone}
-\maketitle
+\input{capitoli/frontespizio}
+\clearpage\null\newpage
+\include{capitoli/colophone}
+
+\clearpage\null\newpage
 
 \tableofcontents
 
@@ -78,20 +110,23 @@
 
 \listoffigures
 
-%\newpage
+\clearpage\null\newpage
 
 %Capitoli
 
-%\include{capitoli/introduzione}
-%\include{capitoli/ambiente-lavoro}
-%\include{capitoli/studio-fattibilita}  
-%\include{capitoli/analisi-requisiti}
+\include{capitoli/introduzione}
+\include{capitoli/ambiente-lavoro}
+\include{capitoli/studio-fattibilita}  
+\include{capitoli/analisi-requisiti}
 \include{capitoli/progettazione}
+\include{capitoli/sviluppo}
+\include{capitoli/conclusione}
 \appendix
 \addappheadtotoc
 \setcounter{table}{0}
 \renewcommand{\thetable}{A.\arabic{table}}
-%\input{capitoli/appendice-incontro}
-%\input{capitoli/glossario}  
+\input{capitoli/appendice-incontro}
+\input{capitoli/glossario}  
+\input{capitoli/bibliografia}  
 
 \end{document}

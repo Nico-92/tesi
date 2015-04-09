@@ -1,7 +1,8 @@
+\clearpage\null\newpage
 \section{Analisi dei requisiti}\label{analisideirequisiti}
 \subsection{Casi d'uso}
 
-I casi d'uso sono presentati con la notazione UML.
+I casi d'uso sono presentati con la notazione \glossario{UML}.
 Ad ogni caso d'uso è associato un titolo ed un codice che segue il seguente formalismo:
 
 \begin{center}
@@ -49,7 +50,7 @@ Il seguente diagramma presenta una visione di alto livello dei casi d'uso obblig
 \end{figure}
 \begin{itemize}
 \item \textbf{Attori:} Utente, operatore;
-\item \textbf{Descrizione:} L'utente ha acquistato una o più PadovaCard, e nel momento dell'acquisto ha definito il loro periodo di validità, selezionando data e ora, come descritto in UC6, alla Sezione \ref{UC6}. L'utente decide però di modificare tale periodo di validità, non gli è consentito farlo da solo, dovrà quindi contattare un operatore, call center o IAT e far modificare il peridoo di validità, con il vincolo che se è prevista una visita alla cappella degli Scrovegni, essa non può essere spostata, per cui tale visita dovrà trovarsi sempre dentro l'arco temporale di validità della tessera;
+\item \textbf{Descrizione:} L'utente ha acquistato una o più PadovaCard, e nel momento dell'acquisto ha definito il loro periodo di validità, selezionando data e ora, come descritto in UC6, alla Sezione \ref{UC6}. L'utente decide però di modificare tale periodo di validità, non gli è consentito farlo da solo, dovrà quindi contattare un operatore, call center o IAT e far modificare il peridoo di validità, con il vincolo che se è prevista una visita alla cappella degli Scrovegni, essa dovrà trovarsi sempre dentro l'arco temporale di validità della tessera;
 \item \textbf{Precondizione:} L'utente desidera modificare il periodo di validità della PadovaCard;
 \item \textbf{Postcondizione:}  Il periodo di validità della PadovaCard è modificato.
 \end{itemize}
@@ -63,13 +64,14 @@ Il seguente diagramma presenta una visione di alto livello dei casi d'uso obblig
 \end{figure}
 \begin{itemize}
 \item \textbf{Attori:} Utente, operatore, \charta;
-\item \textbf{Descrizione:} L'utente contatta il call center, e gli operatori guideranno l'utente nella scelta di uno dei pacchetti disponibili. Quando l'utente ha deciso l'operatore prenota su \tlite acquistando un biglietto a 0 euro con nominativo Telerete. L'ultima operazione per poter ricevere le PadovaCard è il pagamento, descritto in \ref{UC6}.
+\item \textbf{Descrizione:} L'utente contatta il call center, e gli operatori guideranno l'utente nella scelta di uno dei pacchetti disponibili. Quando l'utente ha deciso l'operatore prenota su \tlite acquistando un biglietto a 0 euro. L'ultima operazione per poter ricevere le PadovaCard è il pagamento, descritto in \ref{UC6}.
 \item \textbf{Precondizione:} L'utente desidera comprare una o più padova card;
 \item \textbf{Flusso principale degli eventi:}
 	\begin{itemize}
 		\item L'utente chiama il call center;
 		\item L'utente, guidato dall'operatore sceglie quale pacchetto acquistare;
-        \item L'operatore procede alla selezione su \tlite.
+        \item L'operatore procede all'eventuale prenotazione della visita alla \cappella;
+        \item L'operatore, su OSS, inserisce i dati dell'utente e della PadovaCard.
 	\end{itemize}
 \item \textbf{Postcondizione:}L'utente deve solamente pagare per completare l'acquisto.
 \end{itemize}
@@ -82,12 +84,12 @@ Il seguente diagramma presenta una visione di alto livello dei casi d'uso obblig
 \end{figure}
 \begin{itemize}
 \item \textbf{Attori:} Utente, operatore, \charta;
-\item \textbf{Descrizione:} L'utente si reca ad uno sportello IAT dove potrà acquistare uno degli articoli in vendita e/o una o più PadovaCard. L'operatore completerà prenota su \tlite acquistando un biglietto a 0 euro con nominativo Telerete, quindi può personalizzare i pacchetti con le preferenze di visita  dell'utente. A questo punto all'utente non resta che pagare quanto acquistato con un unico pagamento, tale operazione è illustrata nella Sezione \ref{UC6}.
+\item \textbf{Descrizione:} L'utente si reca ad uno sportello IAT dove potrà acquistare uno degli articoli in vendita e/o una o più PadovaCard. L'operatore completerà prenota su \tlite acquistando un biglietto a 0 euro, quindi può personalizzare i pacchetti con le preferenze di visita  dell'utente. A questo punto all'utente non resta che pagare quanto acquistato con un unico pagamento, tale operazione è illustrata nella Sezione \ref{UC6}.
 \item \textbf{Precondizione:} L'utente desidera comprare una o più padova card;
 \item \textbf{Flusso principale degli eventi:}
 	\begin{itemize}
     	\item L'utente sceglie un pacchetto;
-        \item L'operatore procede alla selezione su \tlite;
+        \item L'operatore procede alla prenotazione su \tlite;
 		\item L'utente assieme all'operatore personalizza il pacchetto;
 		\item L'utente può acquistare altri articoli in vendita allo IAT.
 	\end{itemize}
@@ -109,7 +111,7 @@ Il seguente diagramma presenta una visione di alto livello dei casi d'uso obblig
     	\item L'utente riferisce all'hotel che desidera comprare una o più PadovaCard;
 		\item L'hotel chiama il call center;
 		\item L'hotel comunica la data di visita e quale pacchetto acquistare;
-        \item L'operatore procede alla selezione su \tlite;
+        \item L'operatore procede alla prenotazione su \tlite;
         \item Si procede al pagamento.
 	\end{itemize}
 \item \textbf{Postcondizione:}L'utente deve solamente pagare per completare l'acquisto;
@@ -123,7 +125,7 @@ Il seguente diagramma presenta una visione di alto livello dei casi d'uso obblig
 \end{figure}
 \begin{itemize}
 \item \textbf{Attori:} Utente, operatore, banca;
-\item \textbf{Descrizione:} L'utente ha selezionato la propria PadovaCard con uno dei possibili metodi, e si appresta a pagare. E' possibile farlo sempre tramite carta di credito, mentre è possibile  in contanti solo se l'acquisto è stato fatto presso uno sportello IAT\textsuperscript{1}  e via bonifico solo dal call center. Qualora il pagamento andasse a buon fine l'utente riceverà due email, una da \tlite     -\vivaticket, una dal sistema con il codice della PadovaCard. Qualora durante un'ordine siano acquistate più PadovaCard sarà necessario inserire un nominativo per ognuna di esse, avvalendosi di un operatore. Nel caso in cui l'acquisto avvenga via internet ciò non è possibile, ma una possibile soluzione è proposta come requisito facoltativo alla Sezione \ref{UCF3}.
+\item \textbf{Descrizione:} L'utente ha selezionato la propria PadovaCard con uno dei possibili metodi, e si appresta a pagare. E' possibile farlo sempre tramite carta di credito, mentre è possibile  in contanti solo se l'acquisto è stato fatto presso uno sportello IAT\textsuperscript{1}  e via bonifico solo dal call center. Qualora il pagamento andasse a buon fine l'utente riceverà un'unica mail dal sistema con il codice della PadovaCard e il codice di prenotazione \tlite. Qualora durante un'ordine siano acquistate più PadovaCard sarà necessario inserire un nominativo per ognuna di esse, avvalendosi di un operatore. Nel caso in cui l'acquisto avvenga via internet ciò non è possibile, ma una possibile soluzione è proposta come requisito facoltativo alla Sezione \ref{UCF3}.
 Fondamentale è poi definire una data e un ora di inizio validità per la PadovaCard (la scadenza si fisserà di conseguenza), tenendo presente che se compresa, la visita alla cappella degli Scrovegni deve essere all'interno del periodo di validità.\\
 \begin{footnotesize}
 \textit{\textsuperscript{1} Un hotel a sua discrezione potrebbe far pagare l'utente in contanti e poi utilizzare la propria carta di credito}
@@ -131,7 +133,7 @@ Fondamentale è poi definire una data e un ora di inizio validità per la Padova
 \item \textbf{Precondizione:} L'utente ha selezionato il pacchetto da acquistare;
 \item \textbf{Flusso principale degli eventi:}
 	\begin{itemize}
-		\item L'utente paga, via carta di credito o contanti;
+		\item L'utente paga, via carta di credito, contanti o bonifico;
         \item L'utente stabilisce la data e l'ora di inizio del periodo di validità;
 		\item L'utente riceve la mail contenente il codice della PadovaCard.
 	\end{itemize}
@@ -224,7 +226,7 @@ Questo requisito permette all'utente di personalizzare la propria PadovaCard da 
 \begin{itemize}
 \item \textbf{Attori:} Utente, operatore;
 \item \textbf{Precondizione:} L'utente è in possesso di un codice di personalizzazione;
-\item \textbf{Descrizione:} L'utente con il proprio codice di personalizzazione si reca ad uno sportello IAT, dove l'operatore, leggendo il codice ed interrogando il sistema verrà a conoscenza di come l'utente desidera la propria PadovaCard. Questo sistema permette di velocizzare la creazione della PadovaCard. Da questo momento in poi il procedimento è lo stesso di UC4, visibile alla Sezione \ref{UC4}.
+\item \textbf{Descrizione:} L'utente con il proprio codice di personalizzazione si reca ad uno sportello IAT, dove l'operatore, leggendo il codice ed interrogando il sistema verrà a conoscenza di come l'utente desidera la propria PadovaCard e questo permette di velocizzarne la creazione. Da questo momento in poi il procedimento è lo stesso di UC4, visibile alla Sezione \ref{UC4}.
 
 \item \textbf{Postcondizione:} L'utente è in possesso della PadovaCard.
 \end{itemize}
@@ -244,7 +246,7 @@ Questo requisito permette all'utente di personalizzare la propria PadovaCard da 
 		\item L'utente si collega a \vivaticket;
 		\item L'utente seleziona il pacchetto desiderato.
 	\end{itemize}
-\item \textbf{Postcondizione:}L'utente deve solamente pagare per completare l'acquisto.
+\item \textbf{Postcondizione:} L'utente deve solamente pagare per completare l'acquisto.
 \end{itemize}
 
 \subsubsection{Caso d'uso UCF3: Inserisci nominativi}\label{UCF3}
@@ -269,15 +271,6 @@ Non è presente un diagramma UML in quanto si tratta di un caso d'uso sempliciss
 L'utente che vuole modificare tali nominativi dovrà quindi contattare un operatore e richiedere la modifica.
 \item \textbf{Precondizione:} L'utente ha inserito i nominativi per ogni Padovacard del suo ordine;
 \item \textbf{Postcondizione:} L'operatore ha modificato uno o più nominativi.
-\end{itemize}
-
-\subsubsection{Caso d'uso UCF5: Personalizza all'hotel}
-Non è presente un diagramma UML in quanto si tratta di un caso d'uso semplicissimo.
-\begin{itemize}
-\item \textbf{Attori:} Operatore;
-\item \textbf{Descrizione:} L'utente dopo aver acquistato tramite hotel come descritto in \ref{UCF5}. Quando l'operatore ha confermato la prenotazione si procederà alla personalizzazione della PadovaCard e al pagamento. Importante è che dopo l'avvenuto pagamento il call center viene notificato;
-\item \textbf{Precondizione:} L'utente ha prenotato la visita alla \cappella;
-\item \textbf{Postcondizione:} L'utente ha personalizzato ed acquistato la propria PadovaCardi.
 \end{itemize}
 
 \subsubsection{Caso d'uso UCF6: Creazione utente}
@@ -328,15 +321,14 @@ Requisito & Descrizione & Fonti \\ \hline
 ROU 1 & L'utente deve poter consultare online le offerte relative alla propria padova card  & UC1 \\ \hline
 ROU 2 & L'utente, tramite operatore deve poter comunicare i nominativi associati ad ogni tessera, se su \tlite ne è stata acquistata più di una all'interno di un solo ordine. & UC6 \\ \hline
 ROU 3 & L'utente può acquistare uno degli n pacchetti preconfigurati chiamando il call center, pagando con carta di credito o bonifico e ricevere via mail il codice. & UC3, UC6 \\ \hline
-ROU 4 & L'utente può acquistare uno degli n pacchetti preconfigurati in uno degli alberghi convenzionati pagando con carta di credito o contanti e riceve via mail il codice, e opzionalmente un \glossario{voucher} cartaceo. & UC5, UC6 \\ \hline
-ROU 5 & L'utente può acquistare uno degli n pacchetti preconfigurati, o comporre il proprio ad uno sportello IAT, pagando con carta di credito o contanti e riceverà la tessera e via mail il codice.  & UC4, UC6 \\ \hline
-ROU 6 & L'utente può accedere alla struttura solo se è prevista all'interno della sua padovacard, se essa non è scaduta (superato il periodo di validità) e se non ha già effettuato la visita.  & UC8 \\ \hline
+ROU 4 & L'utente può acquistare uno degli n pacchetti preconfigurati in uno degli alberghi convenzionati pagando con carta di credito o bonifico e riceve via mail il codice, e opzionalmente un \glossario{voucher} cartaceo. & UC5, UC6 \\ \hline
+ROU 5 & L'utente può acquistare uno degli n pacchetti preconfigurati, o comporre il proprio ad uno sportello IAT, pagando con carta di credito o contanti e riceverà la tessera ed eventualmente il codice via mail.  & UC4, UC6 \\ \hline
+ROU 6 & L'utente può accedere alla struttura solo se è prevista all'interno della sua PadovaCard, se essa non è scaduta (superato il periodo di validità) e se non ha già effettuato la visita.  & UC8 \\ \hline
 ROU 7 & L'utente può farsi stampare una nuova tessera in caso essa venga smarrita. (L'utente è comunque in possesso del codice su email).  & UC7 \\ \hline
 RFU 8 & L'utente deve inserire autonomamente la data e l'ora di inizio validità della PadovaCard.  & UC6 \\ \hline
 RFU 9 & L'utente può acquistare uno degli n pacchetti preconfigurati su \vivaticket pagando con carta di credito e ricevere via mail il codice. & UCF2, UC6 \\ \hline
-RFU 10 & L'utente può comporre la propria padova card, visualizzando in tempo reale prezzi ed offerte dei vari pacchetti/ingressi.  & UCF1.1, UCF1.2, UCF1.3 \\ \hline
+RFU 10 & L'utente può comporre la propria PadovaCard, visualizzando in tempo reale prezzi ed offerte dei vari pacchetti/ingressi.  & UCF1.1, UCF1.2, UCF1.3 \\ \hline
 RFU 11 & L'utente può stampare un codice relativo alla propria composizione ed acquistarla ad uno sportllo IAT.  & UCF1.2, UCF1.3 \\ \hline
-RFU 12 & L'utente può comporre il proprio pacchetto comprando da un hotel convenzionato.  & UCF5 \\ \hline
 RFU 13 & L'utente, tramite il portale deve poter inserire i nominativi associati ad ogni tessera, se su vivaticket ne è stata acquistata più di una all'interno di un solo ordine.  & UCF3 \\ \hline
 ROP 14 & Il personale deve loggarsi al sistema con un id univoca.  & UC9 \\ \hline
 ROP 15 & Il personale deve poter recuperare la propria password in caso di smarrimento.  & UC9 \\ \hline
@@ -354,7 +346,6 @@ ROS 26 & Il sistema partendo dai dati ricevuti da \tlite genererà un codice uni
 ROS 27 & Allo scadere del periodo di validità il sistema marca il codice della carta come non più valida. &  \\ \hline
 ROS 28 & Quando si effettua una visita il sistema marca tale visita non più effettuabile da parte di quel codice.  &  \\ \hline
 ROS 29 & Il sistema mantiene separati i dati relativi alle PadovaCard da tutti gli altri, ma raggruppa i dati sulle vendite, per cui la vendita di una PadovaCard è salvata assieme a qualunque altra vendita, ma nessuna informazione è fornita su tale padovaCard se non il codice.  &  \\ \hline
-RFS 30 & Il sistema riceverà i dati da \tlite e li inserirà nel database, salvando la vendita, per ragioni amministrative.  &  \\ \hline
 RFS 31 & Il sistema riconosce come non valida una tessera a cui non è associato un nominativo. &  \\ \hline
 RFO 31 & Gli operatori devono poter modificare i nominativi di un ordine già pagato. & UCF4 \\ \hline
 \caption{Tabella requisiti}
